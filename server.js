@@ -4,7 +4,7 @@ import minimist from "minimist";
 
 var argv = minimist(process.argv.slice(2));
 var app = express();
-const port = argv.port || 5000;
+const PORT = argv.port || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -45,7 +45,6 @@ app.get("/app/rpsls/play/:shot", (req, res) => {
   res.status(200).send(rpsls(req.params.shot));
 });
 
-// Undefined endpoints
 app.get("*", (req, res) => {
   res.status(404).send("404 NOT FOUND");
 });
